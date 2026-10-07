@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="author" content="Lukman">
-<meta name="description" content="Konsep 3D interaktif mesin cuci galon top-loading GW-2: 3 sikat samping dan sikat dalam berputar. Desain oleh Lukman.">
+<meta name="description" content="Konsep 3D interaktif mesin cuci galon top-loading GW-2: 3 sikat samping, sikat dalam dan sikat atas bentuk plus untuk pantat galon. Desain oleh Lukman.">
 <meta property="og:title" content="GW-2 Top Loader · Desain oleh Lukman">
 <meta property="og:description" content="Konsep 3D interaktif mesin cuci galon top-loading dengan sikat berputar.">
 <title>GW-2 Top Loader</title>
@@ -92,7 +92,7 @@ footer b{color:var(--fg);font-weight:600}
 <div class="wrap">
   <header>
     <div>
-      <div class="eyebrow">Mesin cuci galon · konsep low budget · rev C · 3 sikat samping</div>
+      <div class="eyebrow">Mesin cuci galon · konsep low budget · rev D · sikat atas plus di pintu</div>
       <h1>GW-2 <span>Top Loader</span></h1>
       <div class="credit">Desain &amp; engineering oleh <b>Lukman</b></div>
     </div>
@@ -152,6 +152,7 @@ footer b{color:var(--fg);font-weight:600}
           <li>Satu gearmotor (M2) dan satu sabuk serpentine memutar ketiga sikat searah jarum jam. Gesekan bulu memutar galon berlawanan arah, jadi di setiap titik kontak permukaan sikat bergerak melawan permukaan galon.</li>
           <li>Kecepatan galon ditentukan oleh selip bulu terhadap galon. Tekanan bulu (preload ±15 mm) diatur lewat posisi poros sikat.</li>
           <li>Dudukan galon cukup cincin yang berputar bebas di atas bearing.</li>
+          <li>Pantat galon disikat oleh sikat bentuk plus di bawah pintu, dibuat dari sikat strip yang dijual per meter. Sikatnya diam, galon yang berputar di bawahnya, jadi tidak perlu motor tambahan. Tiga pegas memberi tekanan ringan, sekaligus menahan galon agar tidak terangkat oleh semprotan.</li>
           <li>Sikat dalam (M1) berupa poros berongga dengan rotary union. Air disemprot dari ujung poros, dan bulu sikat mekar karena gaya sentrifugal setelah melewati leher galon.</li>
           <li>Total aktuator: 2 motor dan 1 pompa. Tanpa kompresor dan tanpa decapper; segel galon dilepas manual.</li>
           <li>SS304 hanya untuk bagian basah. Kontrol pakai PLC mini atau timer relay, dengan interlock pintu yang memutus M1, M2 dan pompa.</li>
@@ -172,17 +173,18 @@ footer b{color:var(--fg);font-weight:600}
 (function(){
 const PARTS=[
  {n:1,name:"Pintu atas + jendela polycarbonate",d:"Engsel belakang, gas spring, handle depan. Limit switch interlock.",a:"lid"},
- {n:2,name:"Galon PC 19 L (terbalik, berputar)",d:"Leher ke bawah. Diputar oleh gesekan 3 sikat samping, arah berlawanan sikat.",a:[0,930,0]},
+ {n:2,name:"Galon PC 19 L (terbalik, berputar)",d:"Leher ke bawah. Diputar oleh gesekan 3 sikat samping, arah berlawanan sikat.",a:[0,880,0]},
  {n:3,name:"Sikat dalam berputar + lance",d:"Poros berongga SS304, ±450 rpm. Bulu nylon mekar karena gaya sentrifugal, air keluar dari ujung poros.",a:[0,690,0]},
  {n:4,name:"Sikat samping berputar ×3",d:"Brush roller Ø145 × 380 pada jarak 120°. Sekaligus memusatkan, menggosok dan memutar galon.",a:[190,880,0]},
- {n:5,name:"Pipa semprot sudut ×4",d:"SS304 1/2\", 5 nozzle flat-fan per pipa mengarah ke galon.",a:[-200,560,200]},
- {n:6,name:"Nozzle atas di pintu",d:"Membilas pantat galon. Disuplai lewat selang fleksibel di engsel.",a:"lidnoz"},
- {n:7,name:"Dudukan galon berputar bebas",d:"Cincin dengan bantalan nylon di atas bearing, menahan bahu galon.",a:[90,545,60]},
- {n:8,name:"Motor sikat dalam M1",d:"Motor vertikal 1/4 HP di bawah corong, dengan rotary union untuk air.",a:[0,170,60]},
- {n:9,name:"Gearmotor M2 + sabuk serpentine",d:"Satu sabuk memutar ketiga sikat samping searah, ada puli tensioner.",a:[190,190,50]},
- {n:10,name:"Tangki deterjen 15 L",d:"Larutan deterjen dipakai ulang (resirkulasi) di langkah sikat.",a:[-150,180,-150]},
- {n:11,name:"Pompa sentrifugal SS 0,5 HP",d:"Satu pompa untuk semua semprotan, dipilih lewat SV-1 / SV-2.",a:[-170,150,200]},
- {n:12,name:"Panel kontrol",d:"PLC mini / timer relay, start, stop, emergency stop.",a:[340,880,140]}
+ {n:5,name:"Sikat atas bentuk plus (pantat galon)",d:"2 sikat strip 240 mm disilang di plat SS, bulu nylon 40 mm, 3 pegas tekan. Diam, galon yang berputar di bawahnya, jadi tanpa motor tambahan. Ikut terangkat saat pintu dibuka.",a:"lidbrush"},
+ {n:6,name:"Nozzle atas di tengah sikat",d:"Menyemprot pantat galon lewat celah di tengah sikat plus. Disuplai lewat selang fleksibel di engsel.",a:"lidnoz"},
+ {n:7,name:"Pipa semprot sudut ×4",d:"SS304 1/2\", 5 nozzle flat-fan per pipa mengarah ke galon.",a:[-200,560,200]},
+ {n:8,name:"Dudukan galon berputar bebas",d:"Cincin dengan bantalan nylon di atas bearing, menahan bahu galon.",a:[90,545,60]},
+ {n:9,name:"Motor sikat dalam M1",d:"Motor vertikal 1/4 HP di bawah corong, dengan rotary union untuk air.",a:[0,170,60]},
+ {n:10,name:"Gearmotor M2 + sabuk serpentine",d:"Satu sabuk memutar ketiga sikat samping searah, ada puli tensioner.",a:[190,190,50]},
+ {n:11,name:"Tangki deterjen 15 L",d:"Larutan deterjen dipakai ulang (resirkulasi) di langkah sikat.",a:[-150,180,-150]},
+ {n:12,name:"Pompa sentrifugal SS 0,5 HP",d:"Satu pompa untuk semua semprotan, dipilih lewat SV-1 / SV-2.",a:[-170,150,200]},
+ {n:13,name:"Panel kontrol",d:"PLC mini / timer relay, start, stop, emergency stop.",a:[340,880,140]}
 ];
 const STEPS=[
  {name:"Bilas awal",t:15,mode:"water",m1:0,m2:1,d:"Galon berputar, air toren lewat SV-1. Kotoran lepas, air langsung ke buang.",chips:["Pompa ON","M2 sikat samping ×3 ON","Buang BUKA"]},
@@ -335,7 +337,7 @@ function arrow(R,mat,dir){const g=new THREE.Group();const pts=[];const A=Math.PI
  const cone=new THREE.Mesh(new THREE.ConeGeometry(10,24,12),mat);const a=A;cone.position.set(R*Math.cos(a),0,-R*Math.sin(a));
  cone.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),new THREE.Vector3(-Math.sin(a),0,-Math.cos(a)));g.add(cone);
  if(dir<0)g.scale.z=-1;scene.add(g);g.visible=false;return g}
-const arG=arrow(105,M.arrowB,1);arG.position.set(0,965,0);
+const arG=arrow(150,M.arrowB,1);arG.position.set(0,985,0);
 const arB=BP.map(p=>{const a=arrow(55,M.arrowY,-1);a.position.set(p[0],965,p[1]);return a});
 const arI=arrow(45,M.arrowY,-1);arI.position.set(0,930,0);
 
@@ -353,7 +355,22 @@ box(30,22,D,M.steel,-hw+7,11,D/2,lid);box(30,22,D,M.steel,hw-7,11,D/2,lid);
 box(W-40,8,D-40,M.window,0,11,D/2,lid);
 box(220,16,18,M.dark,0,32,D-12,lid);
 box(16,16,18,M.dark,-102,20,D-12,lid);box(16,16,18,M.dark,102,20,D-12,lid);
-cyl(10,30,M.dark,0,-10,D/2,lid);
+// top brush pad (pantat galon): spring-loaded, stationary, galon spins under it
+const topBrush=new THREE.Group();topBrush.position.set(0,0,D/2);lid.add(topBrush);
+[0,1,2].forEach(k=>{const a=k*2*Math.PI/3+.5,x=Math.cos(a)*80,z=Math.sin(a)*80;
+ cyl(4,28,M.pipe,x,-14,z,topBrush);
+ const sp=new THREE.Mesh(new THREE.TorusGeometry(8,1.6,6,14),M.pipe);
+ for(let i=0;i<5;i++){const c=sp.clone();c.rotation.x=Math.PI/2;c.position.set(x,-5-i*4.5,z);topBrush.add(c)}});
+// cross backing: 2 flat bars SS 30x6 x 240, crossed
+box(240,6,30,M.pipe,0,-29,0,topBrush);box(30,6,240,M.pipe,0,-29.5,0,topBrush);
+// strip brushes (sikat strip channel) under each arm, split at centre for the nozzle
+(function(){const g=new THREE.BoxGeometry(2.6,40,2.6);g.translate(0,-20,0);
+ const ch=[[ 1,0],[-1,0],[0, 1],[0,-1]],pts=[];
+ ch.forEach(([dx,dz])=>{box(dx?100:14,8,dx?14:100,M.dark,dx*70,-36,dz*70,topBrush);
+  for(let t=22;t<=118;t+=4)for(let w=-5;w<=5;w+=5){pts.push([dx*t+(dx?0:w),dz*t+(dz?0:w)])}});
+ const im=new THREE.InstancedMesh(g,M.bristle,pts.length),m=new THREE.Matrix4();
+ pts.forEach((p,i)=>{m.makeTranslation(p[0],-40,p[1]);im.setMatrixAt(i,m)});topBrush.add(im);})();
+cyl(10,40,M.dark,0,-50,0,topBrush);
 cyl(5,240,M.pipe,0,-2,D/2-120,lid).rotation.x=Math.PI/2;
 [-180,180].forEach(x=>cyl(10,60,M.dark,x,0,0,lid).rotation.z=Math.PI/2);
 const gs1=cyl(8,1,M.dark,0,0,0),gs2=cyl(5,1,M.pipe,0,0,0);
@@ -402,7 +419,8 @@ const v3=new THREE.Vector3();
 function placeTags(w,h){
  PARTS.forEach((p,i)=>{
   if(p.a==='lid')lid.localToWorld(v3.set(180,30,D*.6));
-  else if(p.a==='lidnoz')lid.localToWorld(v3.set(0,-30,D/2));
+  else if(p.a==='lidnoz')lid.localToWorld(v3.set(0,-75,D/2));
+  else if(p.a==='lidbrush')lid.localToWorld(v3.set(118,-55,D/2+40));
   else v3.set(...p.a);
   v3.project(camera);const el=tagEls[i];
   if(v3.z>1){el.hidden=true;return}el.hidden=false;
@@ -455,7 +473,7 @@ function frame(now){
  const len=ga.distanceTo(gb),dir=gb.clone().sub(ga).normalize();
  gs1.scale.y=len*.5;gs1.position.copy(ga).lerp(gb,.27);gs1.quaternion.setFromUnitVectors(Y,dir);
  gs2.scale.y=len*.55;gs2.position.copy(ga).lerp(gb,.72);gs2.quaternion.setFromUnitVectors(Y,dir);
- lid.localToWorld(lidNozWorld.set(0,-28,D/2));
+ lid.localToWorld(lidNozWorld.set(0,-62,D/2));
  if(running&&lidOpen<.02){
   stepT+=dt*SPEED;
   const s=STEPS[stepI];stepEls[stepI].querySelector('.st').textContent=`${Math.min(s.t,Math.floor(stepT))} / ${s.t} s`;
